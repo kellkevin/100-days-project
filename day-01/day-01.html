@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+		.square {
+			width: 100px;
+			height: 100px;
+			transition-duration: 5s;
+			display: block;
+			background-color: #009999;
+
+			transition-property: all;
+		}
+
+		.stretch {
+			transform: scale(3);
+		}
+
+		.color-change{
+			background-color: #000099;
+		}
+
+		.move {
+			transform: translate(+203px);
+		}
+
+	</style>
+</head>
+<body>
+<div class="square">
+	Square;
+</div>
+<script >
+	var arrAnimation = ["stretch","color-change","move"],
+		numRand, divSquare = document.querySelector(".square"),
+		numPreviousAnimation = 0, numInterval = setInterval("chooseAnimation()",5000), numCount = 0;
+		
+		
+
+		function chooseAnimation(){
+			console.log("start chooseAnimation");
+			 numRand = Math.random() * (arrAnimation.length - 0) + 0;
+			 numRand = Math.round(numRand);
+
+			 if(numCount > 0 ) {
+			 	divSquare.classList.remove(arrAnimation[numPreviousAnimation]);
+			 }
+			 numCount++;
+
+
+
+			 divSquare.className += " " + arrAnimation[numRand];
+			 if(numRand == 2) {
+			 	divSquare.style.backgroudColor = "red";
+			 }
+			 console.log("divSquare.addClass",arrAnimation[numRand]);
+			 numPreviousAnimation = numRand;
+		}
+</script>
+</body>
+</html>

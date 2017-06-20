@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+		.square {
+			width: 100px;
+			height: 100px;
+			transition-duration: 5s;
+		}
+
+		.stretch {
+			scale(3);
+			transition-property: scale;
+		}
+
+		.color-change{
+			background-color: #000099;
+			transition-property: background-color;
+		}
+
+		.move {
+			translate(203px);
+			transition-property: translate;
+		}
+
+	</style>
+</head>
+<body>
+<div id="square">
+	Square;
+</div>
+<script type="javascript">
+	var arrAnimation = ["stretch","color-change","move"],
+		numRand, divSquare = document.querySelector(".square"),
+		numPreviousAnimation = 0;
+
+		window.setInterval(5000,chooseAnimation);
+
+		function chooseAnimation(){
+			 numRand = Math.Random() * (arrAnimation.length - 0) + 0;
+			 numRand = Math.Round(numRand);
+
+			 divSquare.addClass = arrAnimation[numRand];
+			 numPreviousAnimation = numRand;
+		}
+</script>
+</body>
+</html>
